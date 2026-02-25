@@ -95,12 +95,20 @@ LSTM networks implemented via `tensorflow.keras.layers.LSTM` or `torch.nn.LSTM` 
 ## 4 RESULTS AND DISCUSSION
 
 ### 4.1 Project Goals (quantitative)
+Our primary goal is to determine (in a quantitative manner) if prediction markets such as Polymarket exhibit lower intrinsic dimensionality than your tranditional equity markets (NYSE, NASDAQ), and to use these findings to build optimal forecasting models across both domains.
 
-[placeholder]
+Quantitative metrics that we will use to evaluate our methodology:
+- Explained Variance Ratio (explained_variance_)
+Used during PCA to quantify the intrinsic dimensionality of each market. We will measure the proportion of the dataset's variance captured by each principal component.
+Comparing how many components are needed to reach a 95% explained variance threshold will serve as our primary comparative measure.
+- Mean Squared Error (mean_squared_error)
+MSE is our primary risk metric for evaluating the predictive accuracy of our Random Forest, XGBoost, and LSTM models, representing the expected value of the squared error.
+- R^2 Score (r2_score)
+R_2 score is our coefficient of determination, being used to evaluate the goodness-of-fit for our predictive models. It is necessary to measure the proportion of variance in future market prices, explained by our lagged features.
+- Silhouette Score (silhouette_score)
+Silhouette Score is used to evaluate our K-Means and GMM models to make sure that clusters are cohesive and well-seperated from each other (clusters being discovered market regimes).
 
 ### 4.2 Expected Results (quantitative)
-
-[placeholder]
 
 ## 5 REFERENCES
 
